@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="mini_4wd_six_arm">
+    <xacro:arg name="initial_positions_file" default="initial_positions.yaml" />
+
+    <!-- Add a massless root link so KDL does not warn about inertia on the root link. -->
+    <link name="world" />
+
+    <!-- Import the requested mini_4wd_six_arm URDF. -->
+    <xacro:include filename="/home/sunrise/qian_sai/src/mini_4wd_six_arm.urdf" />
+
+    <joint name="world_to_base_link" type="fixed">
+        <parent link="world" />
+        <child link="base_link" />
+        <origin xyz="0 0 0" rpy="0 0 0" />
+    </joint>
+
+    <!-- Import control_xacro -->
+    <xacro:include filename="table_streeing_arm.ros2_control.xacro" />
+
+
+    <xacro:table_streeing_arm_ros2_control name="FakeSystem" initial_positions_file="$(arg initial_positions_file)"/>
+
+</robot>

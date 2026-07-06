@@ -1,0 +1,45 @@
+# Voice assistant node parameters.
+robot_ai_node:
+  ros__parameters:
+    # Devices: substring to match in sounddevice device names.
+    # The USB sound card usually appears as "UACDemoV1.0"; the ALSA plug
+    # device named "UAC" supports 16 kHz resampling.
+    input_device: "UAC"
+    output_device: "UAC"
+
+    # DashScope. Keep real API keys out of the public repository.
+    # Set DASHSCOPE_API_KEY in the environment or use a private local config.
+    dashscope_api_key: ""
+    asr_backend: "omni"
+    asr_model: "paraformer-realtime-v2"
+    omni_asr_model: "qwen3-omni-flash-realtime"
+    omni_voice: "Cherry"
+    llm_model: "qwen3-235b-a22b-instruct-2507"
+    tts_model: "cosyvoice-v1"
+    tts_voice: "longxiaochun"
+
+    # Agent tools.
+    enable_web_tools: true
+    default_location: "Shanghai"
+    workspace_root: ""
+    memory_file: ""
+    assistant_name: "小青"
+    assistant_description: "运行在地瓜派上的AI助手"
+
+    # Audio rates.
+    sample_rate: 16000
+    tts_play_rate: 22050
+
+    # VAD thresholds (RMS, int16 scale).
+    silence_threshold: 260
+    speech_threshold: 520
+    silence_end_s: 1.0
+    pre_speech_pad_s: 0.3
+    min_utterance_s: 0.3
+    max_utterance_s: 12.0
+    speech_start_blocks: 4
+    min_recorded_rms: 260
+
+    # LLM.
+    max_tokens: 512
+    max_history_turns: 6

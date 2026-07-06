@@ -1,0 +1,29 @@
+flowchart TB
+    subgraph L5["人机交互 / 云端层"]
+        A1["robot_ai 大模型语音问答"]
+        A2["robot_car_web Web 监控"]
+        A3["onenet_bridge 云端上报"]
+    end
+    subgraph L4["任务决策层"]
+        B1["voice_nav_control 语音任务状态机"]
+    end
+    subgraph L3["感知与执行层"]
+        C1["nav2_qing 自主导航"]
+        C2["robot_arm_control 药品识别 + 机械臂抓取"]
+        C3["jie_ware / slam_cartgorpher 建图与定位"]
+    end
+    subgraph L2["驱动层"]
+        D1["communication_base 底盘"]
+        D2["p2117_ros 雷达"]
+        D3["ros2_astra_camera 深度相机"]
+    end
+    subgraph L1["硬件层"]
+        E1["轮趣底盘 / IMU"]
+        E2["MS200 激光雷达"]
+        E3["Astra RGB-D 相机 + 六轴机械臂"]
+    end
+
+    L5 --> L4
+    L4 --> L3
+    L3 --> L2
+    L2 --> L1

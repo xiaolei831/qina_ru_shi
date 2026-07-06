@@ -1,0 +1,75 @@
+flowchart TB
+    subgraph DRV["传感器驱动 / 底盘执行层"]
+        direction LR
+        LIDAR["p2117_ros<br/>(oradar_lidar 雷达驱动)"]
+        CAM["ros2_astra_camera<br/>(Astra 深度相机驱动)"]
+        BASE["communication_base<br/>(底盘串口/里程计/IMU)"]
+    end
+
+    subgraph NAV["定位与导航层"]
+        direction LR
+        SLAM["slam_cartgorpher<br/>(Cartographer 建图)"]
+        LOC["jie_ware / lidar_loc<br/>(激光定位, map->odom)"]
+        NAV2["nav2_qing<br/>(Nav2 导航栈 + 地图 + 语义点位)"]
+    end
+
+    subgraph TASK["任务决策 / 人机交互层"]
+        direction LR
+        VNC["voice_nav_control<br/>(语音任务状态机)"]
+        AI["robot_ai<br/>(大模型语音问答 小青)"]
+    end
+
+    subgraph ARM["视觉识别与机械臂抓取层"]
+        direction TB
+        VT["visual_tracker<br/>(BPU 药品检测)"]
+        CL["car_location_color<br/>(底盘对准)"]
+        AP["direct_arm_pick_and_put<br/>(机械臂抓取/放置)"]
+    end
+
+    subgraph CLOUD["监控与云端层"]
+        direction LR
+        WEB["robot_car_web<br/>(Web 状态监控)"]
+        ONENET["onenet_bridge<br/>(OneNET 云端上报)"]
+    end
+
+    LIDAR -- "/scan" --> LOC
+    LIDAR -- "/scan" --> SLAM
+    BASE -- "/odom /imu/data_raw" --> LOC
+    BASE -- "/imu/data" --> SLAM
+    CAM -- "/camera/color/image_raw<br/>/camera/depth/image_raw" --> VT
+
+    SLAM -. "离线生成地图" .-> NAV2
+    LOC -- "map->odom_combined (TF)" --> NAV2
+    NAV2 -- "/cmd_vel" --> BASE
+
+    VNC == "Action: navigate_to_pose<br/>(NavigateToPose)" ==> NAV2
+    VNC -- "/goal_pose" --> NAV2
+    VNC -- "/target_medicine<br/>/medicine_pick_enable" --> VT
+    VNC -- "/arm_state=rotate_put/no_msg" --> AP
+    AP -- "/medicine_pick_state<br/>/arm_phase" --> VNC
+
+    VT -- "/color_position" --> CL
+    VT -- "/color_position" --> AP
+    CL -- "/cmd_vel" --> BASE
+    CL -- "/arm_state=pick" --> AP
+    AP -- "arm_controller / hand_controller<br/>joint_trajectory" --> BASE
+    AP -- "/car_command" --> CL
+
+    BASE -- "/PowerVoltage /imu/data_raw<br/>/ultrasonic_array 等" --> WEB
+    NAV2 -- "/map /amcl_pose /odom_combined" --> WEB
+    VNC -- "/voice_nav_task<br/>/medicine_delivery_record" --> WEB
+    VNC -- "/medicine_delivery_record" --> ONENET
+    BASE -- "/odom_combined /PowerVoltage" --> ONENET
+    ONENET <-. "MQTT" .-> IOT(("OneNET 云平台"))
+    WEB <-. "HTTP/WebSocket" .-> PC(("PC / 手机浏览器"))
+
+    classDef drv fill:#E3F2FD,stroke:#1976D2,color:#0D47A1;
+    classDef nav fill:#E8F5E9,stroke:#388E3C,color:#1B5E20;
+    classDef task fill:#FFF3E0,stroke:#F57C00,color:#E65100;
+    classDef arm fill:#F3E5F5,stroke:#8E24AA,color:#4A148C;
+    classDef cloud fill:#FCE4EC,stroke:#C2185B,color:#880E4F;
+    class LIDAR,CAM,BASE drv;
+    class SLAM,LOC,NAV2 nav;
+    class VNC,AI task;
+    class VT,CL,AP arm;
+    class WEB,ONENET cloud;

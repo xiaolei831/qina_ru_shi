@@ -1,0 +1,142 @@
+/**:
+  ros__parameters:
+    speech_port: "/dev/ttyS1"
+    speech_baud_rate: 115200
+    poll_period_sec: 0.1
+    command_cooldown_sec: 1.0
+    goal_topic: "/goal_pose"
+    task_status_topic: "/voice_nav_task"
+    delivery_task_status_topic: "/medicine_delivery_task"
+    delivery_record_topic: "/medicine_delivery_record"
+    nav_action_name: "navigate_to_pose"
+    map_frame: "map"
+    pickup_wait_sec: 1.0
+    delivery_complete_wait_sec: 5.0
+    task_complete_hold_sec: 3.0
+    pick_timeout_sec: 180.0
+    pick_command_repeat_sec: 2.0
+    place_timeout_sec: 30.0
+    place_command_delay_sec: 0.2
+    return_rest_area_after_delivery: true
+    enable_voice_broadcast: true
+    medicine_pick_enable_topic: "/medicine_pick_enable"
+    target_medicine_topic: "/target_medicine"
+    medicine_pick_state_topic: "/medicine_pick_state"
+    arm_state_topic: "/arm_state"
+    medicine_place_command: "rotate_put"
+    arm_phase_topic: "/arm_phase"
+
+    code_room_101: 19
+    code_room_102: 20
+    code_room_103: 21
+    code_room_104: 32
+    code_nav_room_101: 10
+    code_nav_room_102: 11
+    code_nav_room_103: 12
+    code_nav_room_104: 13
+    code_rest_area: 33
+    code_medicine_lianhua: 14
+    code_medicine_ointment: 16
+    code_medicine_vitamin: 15
+    code_medicine_yinchi: 17
+
+    # 新增播报码默认 0 表示不播报；按语音模块实际播报码填写即可。
+    broadcast_ask_medicine: 0
+    broadcast_arrived_pharmacy: 61
+    broadcast_picked_medicine_a: 62
+    broadcast_start_pick: 0
+    broadcast_pick_failed: 0
+    broadcast_start_room_101: 63
+    broadcast_start_room_102: 64
+    broadcast_start_room_103: 66
+    broadcast_start_room_104: 67
+    broadcast_arrived_rest_area: 68
+    broadcast_arrived_room_101: 73
+    broadcast_arrived_room_102: 88
+    broadcast_arrived_room_103: 94
+    broadcast_arrived_room_104: 95
+    broadcast_nav_arrived_room_101: 35
+    broadcast_nav_arrived_room_102: 36
+    broadcast_nav_arrived_room_103: 37
+    broadcast_nav_arrived_room_104: 38
+
+    medicine_lianhua.name: "莲花清瘟胶囊"
+    medicine_lianhua.target: "莲花清瘟胶囊"
+    medicine_lianhua.broadcast_selected: 0
+    medicine_ointment.name: "乳膏"
+    medicine_ointment.target: "乳膏"
+    medicine_ointment.broadcast_selected: 0
+    medicine_vitamin.name: "维生素胶囊"
+    medicine_vitamin.target: "维生素胶囊"
+    medicine_vitamin.broadcast_selected: 0
+    medicine_yinchi.name: "银翘解毒片"
+    medicine_yinchi.target: "银翘解毒片"
+    medicine_yinchi.broadcast_selected: 0
+
+    pharmacy.x: 2.791636
+    pharmacy.y: 0.429895
+    pharmacy.yaw: 1.6724712950475467
+    rest_area.x: 0.15588507056236267
+    rest_area.y: 0.10736134648323059
+    rest_area.yaw: 0.0
+
+    # 送药进入病房采用两段导航：
+    # 1. room_xxx_door 是蓝色门线向病房内偏移约 0.25m 的过渡点，用于先对准门并进入。
+    # 2. room_xxx_delivery 是橙色目标点；104 按 0.18m 膨胀半径额外微调到安全距离。
+    # 旧的 room_xxx / point_x 参数保留为历史采点和兼容 fallback。
+    room_101_door.x: 9.072393657598393
+    room_101_door.y: 0.2803066339451036
+    room_101_door.yaw: 1.4505885384092487
+    room_102_door.x: 8.715036948211223
+    room_102_door.y: -1.6440329966019402
+    room_102_door.yaw: -1.5515170458122887
+    room_103_door.x: 13.994965547859993
+    room_103_door.y: -0.2608447126434053
+    room_103_door.yaw: 1.8863499610092949
+    room_104_door.x: 13.850779172753802
+    room_104_door.y: -1.828901138171638
+    room_104_door.yaw: -2.1406812946316843
+
+    room_101_delivery.x: 8.764400
+    room_101_delivery.y: 0.774345
+    room_101_delivery.yaw: 1.4505885384092487
+    room_102_delivery.x: 8.501475
+    room_102_delivery.y: -1.986113
+    room_102_delivery.yaw: -1.5515170458122887
+    room_103_delivery.x: 13.299703
+    room_103_delivery.y: 0.221401
+    room_103_delivery.yaw: 1.8863499610092949
+    room_104_delivery.x: 13.173831
+    room_104_delivery.y: -2.232162
+    room_104_delivery.yaw: -2.1406812946316843
+
+    room_101.x: 8.764400
+    room_101.y: 0.774345
+    room_101.yaw: 1.4505885384092487
+    room_102.x: 8.501475
+    room_102.y: -1.986113
+    room_102.yaw: -1.5515170458122887
+    room_103.x: 13.299703
+    room_103.y: 0.221401
+    room_103.yaw: 1.8863499610092949
+    room_104.x: 13.173831
+    room_104.y: -2.232162
+    room_104.yaw: -2.1406812946316843
+
+    point_1.x: 8.764400
+    point_1.y: 0.774345
+    point_1.yaw: 1.4505885384092487
+    point_2.x: 8.501475
+    point_2.y: -1.986113
+    point_2.yaw: -1.5515170458122887
+    point_3.x: 13.299703
+    point_3.y: 0.221401
+    point_3.yaw: 1.8863499610092949
+    point_4.x: 13.173831
+    point_4.y: -2.232162
+    point_4.yaw: -2.1406812946316843
+
+goal_pose_bridge:
+  ros__parameters:
+    goal_topic: "/goal_pose"
+    nav_action_name: "navigate_to_pose"

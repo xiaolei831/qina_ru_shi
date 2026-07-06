@@ -1,0 +1,41 @@
+* text=auto
+
+# Source, scripts, launch files, and configuration should stay Linux-friendly.
+*.c text eol=lf
+*.cpp text eol=lf
+*.h text eol=lf
+*.hpp text eol=lf
+*.py text eol=lf
+*.sh text eol=lf
+*.cmake text eol=lf
+CMakeLists.txt text eol=lf
+*.xml text eol=lf
+*.launch text eol=lf
+*.lua text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.mmd text eol=lf
+*.msg text eol=lf
+*.srv text eol=lf
+*.cfg text eol=lf
+*.rviz text eol=lf
+*.xacro text eol=lf
+*.urdf text eol=lf
+*.srdf text eol=lf
+*.ini text eol=lf
+
+# Binary assets, models, maps, meshes, and shared libraries.
+*.bin binary
+*.dat binary
+*.gif binary
+*.jpg binary
+*.jpeg binary
+*.node binary
+*.pbstream binary
+*.pgm binary
+*.png binary
+*.so binary
+*.STL binary
+*.stl binary

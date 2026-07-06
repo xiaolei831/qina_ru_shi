@@ -1,0 +1,58 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+
+# ROS / colcon
+build/
+install/
+log/
+.colcon/
+
+# Node / diagram generation
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Local environments and secrets
+.env
+.env.*
+!.env.example
+*.local
+*.secret
+secrets/
+private/
+
+# Logs and runtime outputs
+*.log
+*.runtime.log
+*.bag
+rosbag2_*/
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Generated archives and backups
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.rar
+*.7z
+*.bak
+*.bak_*
+
+# Temporary files
+*.tmp
+*.swp
+*~

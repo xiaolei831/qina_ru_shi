@@ -1,0 +1,42 @@
+# ========================================================================
+# 色块识别夹取参数配置 (mini_4wd_six_arm)
+# ========================================================================
+
+# ---------- 色块识别节点 visual_tracker ----------
+visual_tracker:
+  ros__parameters:
+    picture_height: 480
+    picture_width: 640
+    vertical_angle: 0.4320
+    horizontal_angle: 0.5236
+    camera_topic: "/camera/color/image_raw"
+    min_area: 200
+
+    # HSV 阈值 (需根据实际光照环境标定!)
+    yellow_upper: [80, 100, 40]
+    yellow_lower: [100, 255, 255]
+    blue_upper: [0, 60, 40]
+    blue_lower: [30, 255, 255]
+    green_upper: [35, 43, 46]
+    green_lower: [77, 255, 255]
+    target_upper: [0, 43, 46]
+    target_lower: [10, 255, 255]
+
+# ---------- 底盘色块定位节点 car_location_color ----------
+car_location_color:
+  ros__parameters:
+    # PD 参数
+    x_p: 0.15
+    x_d: 0.04
+    y_p: 0.15
+    y_d: 0.04
+    z_p: 0.30
+    z_d: 0.03
+
+    # 色块定位目标位置 (需根据摄像头安装位置标定!)
+    color_location_x: 0.0909
+    color_location_y: 0.2924
+
+    # 小车类型和旋转模式
+    car_mode: "mini_4wd_six_arm"
+    rotate_mode: "holder"

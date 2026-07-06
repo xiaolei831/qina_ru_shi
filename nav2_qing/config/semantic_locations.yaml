@@ -1,0 +1,114 @@
+semantic_locations:
+  frame_id: map
+  source_topic: /clicked_point
+  locations:
+    - id: pharmacy
+      name: 药房
+      type: pharmacy
+      point:
+        x: 2.791636
+        y: 0.429895
+        z: -0.001434
+      goal:
+        x: 2.791636
+        y: 0.429895
+        yaw: 1.6724712950475467
+    - id: ward_101_door
+      name: 病房101门口
+      type: ward_door
+      point:
+        x: 9.072393657598393
+        y: 0.2803066339451036
+        z: 0.002471923828125
+      goal:
+        x: 9.072393657598393
+        y: 0.2803066339451036
+        yaw: 1.4505885384092487
+    - id: ward_101_delivery
+      name: 病房101送药点
+      type: ward_delivery
+      point:
+        x: 8.764400
+        y: 0.774345
+        z: -0.001434
+      goal:
+        x: 8.764400
+        y: 0.774345
+        yaw: 1.4505885384092487
+    - id: ward_102_door
+      name: 病房102门口
+      type: ward_door
+      point:
+        x: 8.715036948211223
+        y: -1.6440329966019402
+        z: -0.001434326171875
+      goal:
+        x: 8.715036948211223
+        y: -1.6440329966019402
+        yaw: -1.5515170458122887
+    - id: ward_102_delivery
+      name: 病房102送药点
+      type: ward_delivery
+      point:
+        x: 8.501475
+        y: -1.986113
+        z: -0.001434326171875
+      goal:
+        x: 8.501475
+        y: -1.986113
+        yaw: -1.5515170458122887
+    - id: ward_103_door
+      name: 病房103门口
+      type: ward_door
+      point:
+        x: 13.994965547859993
+        y: -0.2608447126434053
+        z: -0.001434326171875
+      goal:
+        x: 13.994965547859993
+        y: -0.2608447126434053
+        yaw: 1.8863499610092949
+    - id: ward_103_delivery
+      name: 病房103送药点
+      type: ward_delivery
+      point:
+        x: 13.299703
+        y: 0.221401
+        z: 0.002472
+      goal:
+        x: 13.299703
+        y: 0.221401
+        yaw: 1.8863499610092949
+    - id: ward_104_door
+      name: 病房104门口
+      type: ward_door
+      point:
+        x: 13.850779172753802
+        y: -1.828901138171638
+        z: 0.002471923828125
+      goal:
+        x: 13.850779172753802
+        y: -1.828901138171638
+        yaw: -2.1406812946316843
+    - id: ward_104_delivery
+      name: 病房104送药点
+      type: ward_delivery
+      point:
+        x: 13.173831
+        y: -2.232162
+        z: 0.002472
+      goal:
+        x: 13.173831
+        y: -2.232162
+        yaw: -2.1406812946316843
+    - id: nurse_station
+      name: 护士站
+      type: nurse_station
+      point:
+        x: 0.15588507056236267
+        y: 0.10736134648323059
+        z: -0.001434326171875
+      goal:
+        x: 0.15588507056236267
+        y: 0.10736134648323059
+        yaw: 0.0

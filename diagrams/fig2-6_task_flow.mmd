@@ -1,0 +1,26 @@
+sequenceDiagram
+    autonumber
+    participant U as 用户/语音模块
+    participant V as voice_nav_control
+    participant N as nav2_qing (导航)
+    participant T as visual_tracker (BPU识别)
+    participant C as car_location_color (对准)
+    participant A as direct_arm_pick_and_put (机械臂)
+    participant R as robot_car_web / onenet_bridge
+
+    U->>V: 串口指令 (取某药 + 送某病房)
+    V->>N: Action navigate_to_pose 到药房
+    N-->>V: 到达 (result)
+    V->>T: /target_medicine + /medicine_pick_enable
+    T->>C: /color_position (药品位置)
+    C->>C: PD 控制底盘对准 (/cmd_vel)
+    C->>A: /arm_state=pick
+    A->>A: 发布 joint_trajectory 抓取
+    A-->>V: /medicine_pick_state=done, /arm_phase
+    V->>N: Action navigate_to_pose 到病房门口再到送药点
+    N-->>V: 到达
+    V->>A: /arm_state=rotate_put 放药
+    A-->>V: 放置完成
+    V->>R: /medicine_delivery_record 送药记录
+    V->>N: Action navigate_to_pose 返回护士站
+    N-->>V: 到达, 任务结束

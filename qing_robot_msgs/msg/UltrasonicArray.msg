@@ -1,0 +1,9 @@
+std_msgs/Header header
+float32 front_left
+float32 front_center_left
+float32 front_center_right
+float32 front_right
+float32 rear_left
+float32 rear_center_left
+float32 rear_center_right
+float32 rear_right

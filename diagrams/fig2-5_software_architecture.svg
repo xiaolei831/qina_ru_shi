@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#374151"/>
+    </marker>
+    <marker id="arrow-start" markerWidth="10" markerHeight="10" refX="0" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M8,0 L0,3 L8,6 Z" fill="#64748b"/>
+    </marker>
+    <style>
+      .bg { fill: #ffffff; }
+      .title { font: 700 30px "Microsoft YaHei", "SimHei", Arial, sans-serif; fill: #111827; }
+      .band-title { font: 700 20px "Microsoft YaHei", "SimHei", Arial, sans-serif; fill: #111827; }
+      .node-title { font: 700 20px "Microsoft YaHei", "SimHei", Arial, sans-serif; fill: #111827; }
+      .node-sub { font: 16px "Microsoft YaHei", "SimHei", Arial, sans-serif; fill: #374151; }
+      .topic { font: 14px "Consolas", "Microsoft YaHei", monospace; fill: #374151; }
+      .note { font: 14px "Microsoft YaHei", "SimHei", Arial, sans-serif; fill: #4b5563; }
+      .band { stroke: #cbd5e1; stroke-width: 1.5; rx: 8; }
+      .cloud-band { fill: #fdf3f8; }
+      .task-band { fill: #fff8eb; }
+      .arm-band { fill: #fbf5ff; }
+      .nav-band { fill: #f3fbf5; }
+      .driver-band { fill: #f2f8ff; }
+      .hardware-band { fill: #f8fafc; }
+      .node { stroke-width: 2; rx: 6; }
+      .node-cloud { fill: #f8dfe9; stroke: #c2185b; }
+      .node-task { fill: #fff0d7; stroke: #f57c00; }
+      .node-arm { fill: #f1e3f4; stroke: #8e24aa; }
+      .node-nav { fill: #e3f4e7; stroke: #2e7d32; }
+      .node-driver { fill: #dbeeff; stroke: #1976d2; }
+      .node-hw { fill: #ffffff; stroke: #64748b; }
+      .bus { fill: #f9fafb; stroke: #6b7280; stroke-width: 2; rx: 8; }
+      .bus-title { font: 700 20px "Microsoft YaHei", "SimHei", Arial, sans-serif; fill: #111827; }
+      .bus-sub { font: 15px "Microsoft YaHei", "SimHei", Arial, sans-serif; fill: #374151; }
+      .link { fill: none; stroke: #64748b; stroke-width: 1.8; marker-start: url(#arrow-start); marker-end: url(#arrow); }
+      .flow { fill: none; stroke: #374151; stroke-width: 2; marker-end: url(#arrow); }
+      .dash { fill: none; stroke: #64748b; stroke-width: 1.7; stroke-dasharray: 7 5; marker-end: url(#arrow); }
+    </style>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1600" height="1000"/>
+  <text class="title" x="800" y="45" text-anchor="middle">图2-5 软件系统架构图</text>
+
+  <!-- Layer bands -->
+  <rect class="band cloud-band" x="50" y="70" width="1500" height="125"/>
+  <text class="band-title" x="70" y="103">监控与云端层</text>
+
+  <rect class="band task-band" x="50" y="215" width="1500" height="125"/>
+  <text class="band-title" x="70" y="248">任务决策 / 人机交互层</text>
+
+  <rect class="band arm-band" x="50" y="360" width="1500" height="150"/>
+  <text class="band-title" x="70" y="393">视觉识别与机械臂抓取层</text>
+
+  <rect class="band nav-band" x="50" y="530" width="1500" height="135"/>
+  <text class="band-title" x="70" y="563">定位与导航层</text>
+
+  <rect class="band driver-band" x="50" y="685" width="1500" height="135"/>
+  <text class="band-title" x="70" y="718">传感器驱动 / 底盘执行层</text>
+
+  <rect class="band hardware-band" x="50" y="840" width="1500" height="100"/>
+  <text class="band-title" x="70" y="873">硬件层</text>
+
+  <!-- ROS 2 bus -->
+  <rect class="bus" x="710" y="92" width="180" height="705"/>
+  <text class="bus-title" x="800" y="126" text-anchor="middle">ROS2 通信总线</text>
+  <text class="bus-sub" x="800" y="152" text-anchor="middle">Topic / Action / TF</text>
+  <line x1="735" y1="174" x2="865" y2="174" stroke="#d1d5db" stroke-width="1"/>
+  <text class="topic" x="800" y="210" text-anchor="middle">/scan</text>
+  <text class="topic" x="800" y="238" text-anchor="middle">/odom /imu</text>
+  <text class="topic" x="800" y="266" text-anchor="middle">/cmd_vel</text>
+  <text class="topic" x="800" y="294" text-anchor="middle">/camera/*</text>
+  <text class="topic" x="800" y="322" text-anchor="middle">/color_position</text>
+  <text class="topic" x="800" y="350" text-anchor="middle">/arm_state</text>
+  <text class="topic" x="800" y="378" text-anchor="middle">/arm_phase</text>
+  <text class="topic" x="800" y="406" text-anchor="middle">NavigateToPose</text>
+  <text class="topic" x="800" y="434" text-anchor="middle">/goal_pose</text>
+  <text class="topic" x="800" y="462" text-anchor="middle">/medicine_pick_enable</text>
+  <text class="topic" x="800" y="490" text-anchor="middle">/target_medicine</text>
+  <text class="topic" x="800" y="518" text-anchor="middle">/delivery_record</text>
+
+  <!-- Cloud layer -->
+  <rect class="node node-cloud" x="170" y="115" width="260" height="58"/>
+  <text class="node-title" x="300" y="139" text-anchor="middle">robot_car_web</text>
+  <text class="node-sub" x="300" y="162" text-anchor="middle">Web 状态监控</text>
+
+  <rect class="node node-cloud" x="490" y="115" width="220" height="58"/>
+  <text class="node-title" x="600" y="139" text-anchor="middle">onenet_bridge</text>
+  <text class="node-sub" x="600" y="162" text-anchor="middle">云端数据上报</text>
+
+  <rect class="node node-hw" x="985" y="115" width="220" height="58"/>
+  <text class="node-title" x="1095" y="139" text-anchor="middle">PC / 手机</text>
+  <text class="node-sub" x="1095" y="162" text-anchor="middle">浏览器监控终端</text>
+
+  <rect class="node node-hw" x="1285" y="115" width="190" height="58"/>
+  <text class="node-title" x="1380" y="139" text-anchor="middle">OneNET</text>
+  <text class="node-sub" x="1380" y="162" text-anchor="middle">物联网云平台</text>
+
+  <path class="link" d="M430 144 L430 102 L710 102"/>
+  <path class="link" d="M710 144 L890 144"/>
+  <path class="dash" d="M890 144 L985 144"/>
+  <path class="dash" d="M710 144 L490 144"/>
+  <path class="dash" d="M710 144 L1285 144"/>
+  <text class="note" x="930" y="112">HTTP / WebSocket</text>
+  <text class="note" x="1260" y="112">MQTT</text>
+
+  <!-- Task layer -->
+  <rect class="node node-task" x="170" y="260" width="285" height="58"/>
+  <text class="node-title" x="312.5" y="284" text-anchor="middle">voice_nav_control</text>
+  <text class="node-sub" x="312.5" y="307" text-anchor="middle">语音送药任务状态机</text>
+
+  <rect class="node node-task" x="505" y="260" width="185" height="58"/>
+  <text class="node-title" x="597.5" y="284" text-anchor="middle">robot_ai</text>
+  <text class="node-sub" x="597.5" y="307" text-anchor="middle">语音问答</text>
+
+  <rect class="node node-task" x="980" y="260" width="350" height="58"/>
+  <text class="node-title" x="1155" y="284" text-anchor="middle">medicine_delivery_task</text>
+  <text class="node-sub" x="1155" y="307" text-anchor="middle">取药、导航、放药流程调度</text>
+
+  <path class="link" d="M455 289 L455 230 L710 230"/>
+  <path class="link" d="M690 289 L710 289"/>
+  <path class="link" d="M890 289 L980 289"/>
+
+  <!-- Vision and arm layer -->
+  <rect class="node node-arm" x="145" y="420" width="245" height="58"/>
+  <text class="node-title" x="267.5" y="444" text-anchor="middle">visual_tracker</text>
+  <text class="node-sub" x="267.5" y="467" text-anchor="middle">BPU 药品检测</text>
+
+  <rect class="node node-arm" x="440" y="420" width="245" height="58"/>
+  <text class="node-title" x="562.5" y="444" text-anchor="middle">car_location_color</text>
+  <text class="node-sub" x="562.5" y="467" text-anchor="middle">底盘视觉对准</text>
+
+  <rect class="node node-arm" x="985" y="420" width="325" height="58"/>
+  <text class="node-title" x="1147.5" y="444" text-anchor="middle">direct_arm_pick_and_put</text>
+  <text class="node-sub" x="1147.5" y="467" text-anchor="middle">固定姿态抓取 / 放置</text>
+
+  <path class="link" d="M390 449 L390 405 L710 405"/>
+  <path class="link" d="M685 449 L710 449"/>
+  <path class="link" d="M890 449 L985 449"/>
+
+  <!-- Navigation layer -->
+  <rect class="node node-nav" x="150" y="580" width="260" height="58"/>
+  <text class="node-title" x="280" y="604" text-anchor="middle">slam_cartgorpher</text>
+  <text class="node-sub" x="280" y="627" text-anchor="middle">Cartographer 建图</text>
+
+  <rect class="node node-nav" x="460" y="580" width="245" height="58"/>
+  <text class="node-title" x="582.5" y="604" text-anchor="middle">jie_ware / lidar_loc</text>
+  <text class="node-sub" x="582.5" y="627" text-anchor="middle">激光定位 map→odom</text>
+
+  <rect class="node node-nav" x="985" y="580" width="330" height="58"/>
+  <text class="node-title" x="1150" y="604" text-anchor="middle">nav2_qing</text>
+  <text class="node-sub" x="1150" y="627" text-anchor="middle">Nav2 导航栈 / 地图 / 语义点位</text>
+
+  <path class="link" d="M410 609 L410 550 L710 550"/>
+  <path class="link" d="M705 609 L710 609"/>
+  <path class="link" d="M890 609 L985 609"/>
+
+  <!-- Driver layer -->
+  <rect class="node node-driver" x="140" y="735" width="245" height="58"/>
+  <text class="node-title" x="262.5" y="759" text-anchor="middle">p2117_ros</text>
+  <text class="node-sub" x="262.5" y="782" text-anchor="middle">MS200 雷达驱动</text>
+
+  <rect class="node node-driver" x="440" y="735" width="270" height="58"/>
+  <text class="node-title" x="575" y="759" text-anchor="middle">ros2_astra_camera</text>
+  <text class="node-sub" x="575" y="782" text-anchor="middle">Astra RGB-D 相机驱动</text>
+
+  <rect class="node node-driver" x="985" y="735" width="320" height="58"/>
+  <text class="node-title" x="1145" y="759" text-anchor="middle">communication_base</text>
+  <text class="node-sub" x="1145" y="782" text-anchor="middle">底盘串口 / 里程计 / IMU / 机械臂控制</text>
+
+  <path class="link" d="M385 764 L385 710 L710 710"/>
+  <path class="link" d="M710 764 L710 764"/>
+  <path class="link" d="M890 764 L985 764"/>
+  <path class="link" d="M710 764 L710 764"/>
+
+  <!-- Hardware layer -->
+  <rect class="node node-hw" x="145" y="890" width="230" height="36"/>
+  <text class="node-sub" x="260" y="913" text-anchor="middle">MS200 激光雷达</text>
+
+  <rect class="node node-hw" x="460" y="890" width="230" height="36"/>
+  <text class="node-sub" x="575" y="913" text-anchor="middle">Astra RGB-D 相机</text>
+
+  <rect class="node node-hw" x="995" y="890" width="210" height="36"/>
+  <text class="node-sub" x="1100" y="913" text-anchor="middle">轮式底盘 / IMU</text>
+
+  <rect class="node node-hw" x="1260" y="890" width="210" height="36"/>
+  <text class="node-sub" x="1365" y="913" text-anchor="middle">六轴机械臂 / 夹爪</text>
+
+  <path class="flow" d="M260 890 L260 793"/>
+  <path class="flow" d="M575 890 L575 793"/>
+  <path class="flow" d="M1100 890 L1100 793"/>
+  <path class="flow" d="M1365 890 C1365 840 1285 807 1205 793"/>
+
+  <!-- Key flow note -->
+  <rect x="945" y="680" width="520" height="34" fill="#ffffff" stroke="#e5e7eb" rx="5"/>
+  <text class="note" x="1205" y="702" text-anchor="middle">
+    主流程：语音指令 → 自主导航 → 视觉识别 → 底盘对准 → 机械臂抓放 → Web/云端记录
+  </text>
+
+  <!-- Legend -->
+  <line x1="80" y1="970" x2="150" y2="970" class="link"/>
+  <text class="note" x="168" y="975">ROS2 双向通信接口</text>
+  <line x1="380" y1="970" x2="450" y2="970" class="dash"/>
+  <text class="note" x="468" y="975">Web / MQTT 外部链路</text>
+  <line x1="690" y1="970" x2="760" y2="970" class="flow"/>
+  <text class="note" x="778" y="975">硬件数据与控制流</text>
+</svg>

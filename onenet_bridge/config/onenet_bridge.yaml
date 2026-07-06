@@ -1,0 +1,25 @@
+onenet_bridge_node:
+  ros__parameters:
+    product_id: ""
+    device_name: ""
+    # Keep real credentials out of the public repository.
+    # Fill this in from a private deployment config before enabling cloud upload.
+    access_key: ""
+    access_key_is_base64: true
+    token_version: "2018-10-31"
+    token_method: "sha1"
+    token_expire_seconds: 86400
+    token_resource: ""
+    mqtt_host: "mqtts.heclouds.com"
+    mqtt_port: 1883
+    mqtt_client_id: ""
+    mqtt_keepalive_seconds: 60
+    mqtt_timeout_seconds: 6
+    cloud_maintain_period_ms: 30000
+    use_tls: false
+    verify_tls: true
+    report_period_ms: 2000
+    enable_cloud: false
+    delivery_record_topic: "/medicine_delivery_record"
+    delivery_event_identifier: "medicine_delivery"
+    delivery_report_topic: ""
