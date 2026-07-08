@@ -1,0 +1,167 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">地瓜送药机器人开源项目封面</title>
+  <desc id="desc">A clean technical cover illustration for an open-source ROS 2 autonomous medicine delivery robot, showing navigation, vision, arm control, voice interaction, and cloud monitoring modules.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#f7fbff"/>
+      <stop offset="0.52" stop-color="#eef8f5"/>
+      <stop offset="1" stop-color="#fff8ef"/>
+    </linearGradient>
+    <linearGradient id="core" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#0f4c81"/>
+      <stop offset="1" stop-color="#1d8a7a"/>
+    </linearGradient>
+    <linearGradient id="orange" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#ffb454"/>
+      <stop offset="1" stop-color="#ef6c35"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#123" flood-opacity="0.16"/>
+    </filter>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#123" flood-opacity="0.12"/>
+    </filter>
+    <pattern id="grid" width="44" height="44" patternUnits="userSpaceOnUse">
+      <path d="M44 0H0V44" fill="none" stroke="#b7c9d6" stroke-width="1" opacity="0.28"/>
+    </pattern>
+    <marker id="arrowBlue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10Z" fill="#2d6cdf"/>
+    </marker>
+    <marker id="arrowGreen" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10Z" fill="#16a36f"/>
+    </marker>
+    <marker id="arrowOrange" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10Z" fill="#ef6c35"/>
+    </marker>
+    <style>
+      .title { font: 800 74px "Microsoft YaHei", "Noto Sans CJK SC", "PingFang SC", Arial, sans-serif; fill: #172033; letter-spacing: 0; }
+      .subtitle { font: 500 28px "Segoe UI", "Microsoft YaHei", Arial, sans-serif; fill: #405268; letter-spacing: 0; }
+      .label { font: 700 24px "Segoe UI", "Microsoft YaHei", Arial, sans-serif; fill: #24364a; letter-spacing: 0; }
+      .small { font: 500 18px "Segoe UI", "Microsoft YaHei", Arial, sans-serif; fill: #50647b; letter-spacing: 0; }
+      .micro { font: 600 15px "Segoe UI", "Microsoft YaHei", Arial, sans-serif; fill: #64748b; letter-spacing: 0; }
+      .card { fill: rgba(255,255,255,0.88); stroke: #c8d9e7; stroke-width: 2; }
+      .chipLine { stroke: #d7e6ef; stroke-width: 3; stroke-linecap: round; }
+      .wireBlue { fill: none; stroke: #2d6cdf; stroke-width: 4; marker-end: url(#arrowBlue); stroke-linecap: round; stroke-linejoin: round; }
+      .wireGreen { fill: none; stroke: #16a36f; stroke-width: 4; marker-end: url(#arrowGreen); stroke-linecap: round; stroke-linejoin: round; }
+      .wireOrange { fill: none; stroke: #ef6c35; stroke-width: 4; marker-end: url(#arrowOrange); stroke-linecap: round; stroke-linejoin: round; }
+      .dash { stroke-dasharray: 12 12; }
+    </style>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <rect width="1600" height="900" fill="url(#grid)"/>
+  <circle cx="1370" cy="140" r="220" fill="#dcefff" opacity="0.45"/>
+  <circle cx="160" cy="740" r="260" fill="#fce3bd" opacity="0.30"/>
+  <circle cx="650" cy="790" r="190" fill="#d7f2ea" opacity="0.34"/>
+
+  <text x="110" y="118" class="title">地瓜送药机器人</text>
+  <text x="115" y="166" class="subtitle">ROS 2 autonomous medicine delivery robot · Navigation · Vision · Arm control · Cloud</text>
+  <g transform="translate(116,196)">
+    <rect x="0" y="0" width="210" height="42" rx="21" fill="#172033"/>
+    <text x="26" y="28" font-family="Segoe UI, Microsoft YaHei, Arial, sans-serif" font-size="18" font-weight="700" fill="#fff">MIT Open Source</text>
+    <rect x="230" y="0" width="172" height="42" rx="21" fill="#e9f6f3" stroke="#91cabc"/>
+    <text x="258" y="28" font-family="Segoe UI, Microsoft YaHei, Arial, sans-serif" font-size="18" font-weight="700" fill="#16705f">RDK X5 / BPU</text>
+    <rect x="422" y="0" width="126" height="42" rx="21" fill="#fff1df" stroke="#f0b16a"/>
+    <text x="455" y="28" font-family="Segoe UI, Microsoft YaHei, Arial, sans-serif" font-size="18" font-weight="700" fill="#aa5a14">Nav2</text>
+  </g>
+
+  <g transform="translate(595,230)" filter="url(#shadow)">
+    <rect x="0" y="0" width="410" height="360" rx="34" fill="#fff" stroke="#bdd3e4" stroke-width="3"/>
+    <rect x="112" y="64" width="186" height="225" rx="22" fill="url(#core)"/>
+    <rect x="144" y="103" width="124" height="94" rx="12" fill="#0f172a" opacity="0.88"/>
+    <rect x="158" y="119" width="96" height="64" rx="8" fill="#223047"/>
+    <path d="M124 86H83M124 132H83M124 178H83M124 224H83M286 86H327M286 132H327M286 178H327M286 224H327" class="chipLine"/>
+    <circle cx="92" cy="73" r="15" fill="#ffcf5a"/>
+    <circle cx="319" cy="73" r="15" fill="#ffcf5a"/>
+    <circle cx="92" cy="278" r="15" fill="#ffcf5a"/>
+    <circle cx="319" cy="278" r="15" fill="#ffcf5a"/>
+    <rect x="177" y="250" width="58" height="24" rx="6" fill="#e8fbff"/>
+    <text x="132" y="326" class="label" fill="#172033">核心主控 / BPU</text>
+    <text x="94" y="351" class="small">任务调度 · 路径规划 · 视觉推理</text>
+  </g>
+
+  <g transform="translate(116,292)" filter="url(#softShadow)">
+    <rect width="316" height="126" rx="22" class="card"/>
+    <rect x="26" y="29" width="80" height="54" rx="12" fill="#172033"/>
+    <rect x="44" y="16" width="44" height="24" rx="8" fill="#24364a"/>
+    <path d="M33 96H99" stroke="#2d6cdf" stroke-width="5" stroke-linecap="round"/>
+    <text x="130" y="49" class="label">语音交互</text>
+    <text x="130" y="79" class="small">识别 / 播报 / 任务指令</text>
+  </g>
+
+  <g transform="translate(116,462)" filter="url(#softShadow)">
+    <rect width="316" height="126" rx="22" class="card"/>
+    <ellipse cx="66" cy="55" rx="52" ry="28" fill="#111827"/>
+    <ellipse cx="66" cy="51" rx="39" ry="18" fill="#2f3a48"/>
+    <circle cx="66" cy="51" r="8" fill="#74d1ff"/>
+    <text x="130" y="49" class="label">2D 激光雷达</text>
+    <text x="130" y="79" class="small">建图 / 定位 / 避障感知</text>
+  </g>
+
+  <g transform="translate(116,632)" filter="url(#softShadow)">
+    <rect width="316" height="126" rx="22" class="card"/>
+    <rect x="30" y="34" width="92" height="42" rx="20" fill="#1f2937"/>
+    <circle cx="54" cy="55" r="10" fill="#6ee7b7"/>
+    <circle cx="77" cy="55" r="10" fill="#60a5fa"/>
+    <circle cx="100" cy="55" r="10" fill="#a78bfa"/>
+    <text x="140" y="49" class="label">Astra RGB-D</text>
+    <text x="140" y="79" class="small">图像采集 / 药品识别</text>
+  </g>
+
+  <g transform="translate(1162,292)" filter="url(#softShadow)">
+    <rect width="318" height="126" rx="22" class="card"/>
+    <path d="M68 82h94a32 32 0 0 0 5-64 42 42 0 0 0-80-5 34 34 0 0 0-44 33 34 34 0 0 0 25 36Z" fill="#e9f6ff" stroke="#2d6cdf" stroke-width="6"/>
+    <text x="184" y="49" class="label">OneNET / Web</text>
+    <text x="184" y="79" class="small">记录上传 · 状态监控</text>
+  </g>
+
+  <g transform="translate(1162,462)" filter="url(#softShadow)">
+    <rect width="318" height="126" rx="22" class="card"/>
+    <rect x="34" y="34" width="92" height="58" rx="10" fill="#0e7a5f"/>
+    <rect x="46" y="46" width="28" height="22" rx="4" fill="#b8f7e7"/>
+    <rect x="83" y="46" width="28" height="22" rx="4" fill="#b8f7e7"/>
+    <path d="M46 86H112M80 28V98" stroke="#d6fff5" stroke-width="4"/>
+    <text x="152" y="49" class="label">STM32 下位机</text>
+    <text x="152" y="79" class="small">底盘 / 电机 / 夹爪控制</text>
+  </g>
+
+  <g transform="translate(1162,632)" filter="url(#softShadow)">
+    <rect width="318" height="126" rx="22" class="card"/>
+    <path d="M70 92C96 66 105 44 104 23" fill="none" stroke="#1f2937" stroke-width="18" stroke-linecap="round"/>
+    <path d="M105 25C132 42 144 62 152 92" fill="none" stroke="#1f2937" stroke-width="16" stroke-linecap="round"/>
+    <rect x="42" y="90" width="140" height="14" rx="7" fill="url(#orange)"/>
+    <circle cx="70" cy="92" r="12" fill="#ffcf5a"/>
+    <circle cx="105" cy="25" r="12" fill="#ffcf5a"/>
+    <circle cx="152" cy="92" r="12" fill="#ffcf5a"/>
+    <text x="196" y="49" class="label">六轴机械臂</text>
+    <text x="196" y="79" class="small">药品抓取 · 放置执行</text>
+  </g>
+
+  <g transform="translate(598,664)" filter="url(#softShadow)">
+    <rect width="404" height="128" rx="26" class="card"/>
+    <rect x="82" y="58" width="185" height="40" rx="16" fill="#263547"/>
+    <rect x="112" y="25" width="150" height="44" rx="10" fill="#f7fafc" stroke="#cad8e2" stroke-width="3"/>
+    <circle cx="112" cy="104" r="22" fill="#172033"/>
+    <circle cx="238" cy="104" r="22" fill="#172033"/>
+    <circle cx="112" cy="104" r="8" fill="#94a3b8"/>
+    <circle cx="238" cy="104" r="8" fill="#94a3b8"/>
+    <rect x="283" y="40" width="40" height="54" rx="12" fill="#eaf2f8"/>
+    <text x="52" y="37" class="label">四驱底盘</text>
+    <text x="52" y="62" class="small">里程计 / IMU / 电机反馈</text>
+  </g>
+
+  <path d="M434 355C490 355 520 360 586 370" class="wireBlue"/>
+  <path d="M434 525C506 525 523 492 586 452" class="wireGreen"/>
+  <path d="M434 695C504 682 522 604 586 532" class="wireGreen"/>
+  <path d="M1006 362C1060 358 1094 352 1154 352" class="wireBlue"/>
+  <path d="M1006 474C1054 506 1094 523 1154 524" class="wireOrange"/>
+  <path d="M1006 550C1074 606 1098 662 1154 694" class="wireOrange"/>
+  <path d="M800 592V656" class="wireGreen dash"/>
+  <path d="M940 724C1014 724 1068 714 1154 694" class="wireGreen dash"/>
+
+  <g transform="translate(500,818)">
+    <circle cx="0" cy="0" r="6" fill="#2d6cdf"/><text x="16" y="6" class="micro">任务指令 / 状态数据</text>
+    <circle cx="214" cy="0" r="6" fill="#16a36f"/><text x="230" y="6" class="micro">感知输入 / 运动反馈</text>
+    <circle cx="430" cy="0" r="6" fill="#ef6c35"/><text x="446" y="6" class="micro">机械臂与夹爪控制</text>
+  </g>
+</svg>
